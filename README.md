@@ -1,10 +1,44 @@
-# S-DES
-# 🔐 S-DES 算法实现（Java + Swing GUI）
+# 🔐《信息安全导论》课程作业1——S-DES 算法实现
 
-> 《信息安全导论》课程作业 1  
-> 题目：S-DES算法实现  
-> 语言：Java（使用 Swing 实现 GUI）  
+> 语言：Java + Swing 
 > 小组：越学越铺张·卜慧娟、龚雪、王欣悦、张钰婕
+
+## 📖 项目简介
+
+本项目实现了S-DES算法，算法标准设定如下：
+
+- 分组长度：8-bit
+- 密钥长度：10-bit
+- 算法描述：
+
+    1.加密算法：
+$$C = IP^{-1}\!\left(f_{k_2}\!\left(SW\!\left(f_{k_1}(IP(P))\right)\right)\right)$$
+
+    2.解密算法：
+$$P = IP^{-1}\!\left(f_{k_1}\!\left(SW\!\left(f_{k_2}(IP(C))\right)\right)\right)$$
+
+    3.密钥扩展：
+$$k_i = P_{8}\!\left(\mathrm{Shift}^{\,i}\!\left(P_{10}(K)\right)\right),\ (i=1,2)$$
+
+- 转换装置设定：
+    1.密钥扩展置
+
+  <img width="441" height="397" alt="image" src="https://github.com/user-attachments/assets/0c019654-1bf1-434c-876a-4b1a95e449c3" />
+
+    2.初始置换盒
+
+  <img width="476" height="166" alt="image" src="https://github.com/user-attachments/assets/ed73e7cd-d1d0-48e5-966e-8cf584cbe731" />
+
+    3.最终置换盒
+
+  <img width="485" height="162" alt="image" src="https://github.com/user-attachments/assets/a04a6057-96a9-4c78-961e-8c2f686d4987" />
+
+    4.轮函数 F
+
+  <img width="589" height="868" alt="image" src="https://github.com/user-attachments/assets/897ce453-fd40-4323-8630-4b551fcdb704" />
+
+
+## 🧱 代码结构
 
 ```text
 ├── SDESCore.java        # 统一出入口：密钥生成 + 加/解密（Binary/ASCII）
@@ -18,21 +52,7 @@
 └── Main.java            # 程序入口（启动 GUI）
 ```
 
-
-## 📖 项目简介
-
-本项目实现了教学用简化数据加密标准（Simplified DES, S-DES）算法，包括：
-
-- 密钥扩展（10-bit → 两个子密钥 K1, K2）
-- 加密与解密（8-bit 分组）
-- GUI 图形化界面（基于 Java Swing）
-- ASCII 字符串加密 / 解密
-- 暴力破解（穷举 1024 个 10-bit 密钥，支持多线程）
-- 封闭测试（分析密钥碰撞）
-
-项目目标是掌握 Feistel 结构、置换盒（P-box）、S-box、以及对称加密算法的基本原理。
-
-## 🧪 关卡测试
+## 🧪 关卡测试结果
 
 ### 第1关：基本测试 ✅
 开发了完整的S-DES算法实现，并提供了图形用户界面，支持用户交互式操作，支持8位二进制数据和10位二进制密钥的加解密。
@@ -42,7 +62,7 @@
 核心算法模块包括：密钥生成器、加密模块、解密模块
 
 界面支持二进制模式和ASCII模式切换
-***
+
 #### 加密解密
 输入8位二进制明/密文，10位二进制密钥，点击加/解密按钮后得到8位二进制密/明文
 
@@ -145,72 +165,14 @@ S0盒和S1盒采用标准定义
 
 <img width="173" height="81" alt="联想截图_20251008203922" src="https://github.com/user-attachments/assets/7fef05a2-c826-46fc-a405-94d8c2c72838" />
 
-
----
-
-## 🧱 功能模块
-
-| 模块 | 功能描述 |
-|------|-----------|
-| `SDES.java` | 核心算法模块，负责加解密、密钥扩展、S-Box 与置换 |
-| `SDESGui.java` | 图形界面，支持用户输入密钥与明文、显示密文 |
-| `BruteForcer.java` | 暴力破解实现，穷举 1024 种 10-bit 密钥 |
-| `Main.java` | 程序入口，创建并启动 GUI 窗口 |
-
----
-
 ## 🖥️ 运行环境
 
 - **操作系统**：Windows / macOS / Linux  
 - **Java 版本**：JDK 11 或更高  
-- **开发工具**：VS Code / Eclipse / IntelliJ IDEA  
+- **开发工具**：VS Code
 - **依赖**：无第三方依赖，仅使用标准库 `javax.swing`
-
----
 
 ## 🚀 使用方法
 
-### 🧩 1. 编译与运行（命令行方式）
+### 编译与运行（命令行方式）
 
-
-
----
-
-## 作业要求与对应实现
-
-**1) 实现 S-DES 的加密/解密流程（8 位分组）**  
-- 流程：`IP → Round(K1) → 交换 → Round(K2) → IP⁻¹`；解密时轮密钥顺序相反（K2、K1）。  
-- 代码：`Encryption.java`、`Decryption.java`；流程调度在 `SDESCore.java`。
-
-**2) 密钥调度（10 位主密钥 → K1、K2）**  
-- `P10 → (L/R 各左移 1) → P8 = K1`；再在此基础上 **各左移 2**、`P8 = K2`。  
-- 代码：`KeyGenerator.java`；置换/左移在 `CommonUtils.java`。
-
-**3) S 盒定义与查表**  
-- `SBoxManager.java` 提供 S0/S1 与 `substitute`；行=首末位，列=中间两位，输出 2 位结果拼 4 位。
-
-**4) ASCII 与二进制两种模式**  
-- Binary：输入/输出均为 **8 位二进制**。  
-- ASCII：逐字符转 8 位二进制处理，再还原字符。  
-- 代码：`SDESCore#encrypt/decrypt`（二进制）；`SDESCore#encryptASCII/decryptASCII`（ASCII）；GUI 在 `SDESGUI.java` 里切换/校验/同步。
-
-**5) 暴力破解（Brute Force）**  
-- 穷举 2¹⁰=1024 个候选密钥，支持“**找到第一把**”/“**找到全部**”两种模式；默认多线程分片，带进度条与统计。  
-- 代码：`BruteForceSDES.java`；入口按钮在 `SDESGUI.java`。
-
----
-
-## 环境与构建
-
-- **JDK**：8+（推荐 11 或更高）
-- **外部依赖**：无
-- **编译/运行**（跨平台）：
-
-### Linux / macOS（bash/zsh）
-```bash
-# 1) 清理与输出目录
-rm -rf out && mkdir -p out
-# 2) 编译当前目录全部 Java 源文件
-javac -encoding UTF-8 -d out *.java
-# 3) 运行（GUI）
-java -cp out Main
