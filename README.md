@@ -2,25 +2,21 @@
 # 🔐 S-DES 算法实现（Java + Swing GUI）
 
 > 《信息安全导论》课程作业 1  
-> 题目：S-DES 加解密算法实现与暴力破解  
+> 题目：S-DES算法实现  
 > 语言：Java（使用 Swing 实现 GUI）  
-> 小组成员：张三、李四  
-> 提交日期：2025-10-08
+> 小组：越学越铺张·卜慧娟、龚雪、王欣悦、张钰婕
 
-
-├── core/
-│   ├── SDESCore.java         # 统一出入口：密钥生成 + 加/解密流程
-│   ├── KeyGenerator.java     # 10-bit 主密钥 → 8-bit 子密钥 K1/K2
-│   ├── Encryption.java       # 加密（两轮 Feistel + IP / IP^-1）
-│   └── Decryption.java       # 解密（轮密钥顺序反向）
-├── utils/
-│   ├── CommonUtils.java      # 置换、异或、循环左移、二进制/字符转换、校验
-│   └── SBoxManager.java      # S0 / S1 盒与替换逻辑
-├── ui/
-│   ├── SDESGUI.java          # 主界面（Binary/ASCII 双模式）
-│   └── BruteForceSDES.java   # 暴力破解子窗体（多线程、进度条）
-└── Main.java                 # 程序入口（启动 GUI）
-
+```text
+├── SDESCore.java        # 统一出入口：密钥生成 + 加/解密（Binary/ASCII）
+├── KeyGenerator.java    # 10-bit 主密钥 → 8-bit 子密钥 K1/K2
+├── Encryption.java      # 加密（两轮 Feistel + IP / IP^-1）
+├── Decryption.java      # 解密（轮密钥顺序反向）
+├── CommonUtils.java     # 置换、异或、循环左移、二进制/字符转换、校验
+├── SBoxManager.java     # S0 / S1 盒与替换逻辑
+├── SDESGUI.java         # 主界面（Binary/ASCII 双模式）
+├── BruteForceSDES.java  # 暴力破解子窗体（多线程、进度条）
+└── Main.java            # 程序入口（启动 GUI）
+```
 
 
 ## 📖 项目简介
