@@ -72,7 +72,7 @@ S0盒和S1盒采用标准定义
 > 
 > B组得到密文：00010001
 
-<img width="552" height="330" alt="联想截图_20251008193414" src="https://github.com/user-attachments/assets/730f9996-3b9e-4507-b43a-f21524394239" />
+## 欣悦的图
 
 > A组已知密文：00010001
 > 
@@ -131,9 +131,13 @@ S0盒和S1盒采用标准定义
 
 分析结果：存在密钥碰撞现象
 
+<img width="589" height="339" alt="联想截图_20251008203818" src="https://github.com/user-attachments/assets/4ad7a38e-0afc-4577-8a1b-5c18419e6272" />
+
 部分不同密钥加密同一明文会产生相同密文
 
 最大碰撞数：观察到最多有6个不同密钥对应同一密文
+
+<img width="384" height="27" alt="联想截图_20251008204004" src="https://github.com/user-attachments/assets/fdc2e5b3-6785-4248-b8f0-2b4706d39f96" />
 
 #### 碰撞统计：
 
@@ -142,6 +146,8 @@ S0盒和S1盒采用标准定义
 总碰撞次数：依赖测试数据
 
 平均每个明文对应的密钥数：4个（1024/256）
+
+<img width="173" height="81" alt="联想截图_20251008203922" src="https://github.com/user-attachments/assets/7fef05a2-c826-46fc-a405-94d8c2c72838" />
 
 
 ---
