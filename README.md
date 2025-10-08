@@ -1,7 +1,6 @@
 # 🔐《信息安全导论》课程作业1——S-DES 算法实现
 
-> -语言：Java + Swing
-> -小组：越学越铺张·卜慧娟、龚雪、王欣悦、张钰婕
+> 小组：越学越铺张·卜慧娟、龚雪、王欣悦、张钰婕
 
 ## 📖 项目简介
 
@@ -19,23 +18,6 @@ $$P = IP^{-1}\!\left(f_{k_1}\!\left(SW\!\left(f_{k_2}(IP(C))\right)\right)\right
 
     3.密钥扩展：
 $$k_i = P_{8}\!\left(\mathrm{Shift}^{\,i}\!\left(P_{10}(K)\right)\right),\ (i=1,2)$$
-
-- 转换装置设定：
-    1.密钥扩展置
-
-  <img width="441" height="397" alt="image" src="https://github.com/user-attachments/assets/0c019654-1bf1-434c-876a-4b1a95e449c3" />
-
-    2.初始置换盒
-
-  <img width="476" height="166" alt="image" src="https://github.com/user-attachments/assets/ed73e7cd-d1d0-48e5-966e-8cf584cbe731" />
-
-    3.最终置换盒
-
-  <img width="485" height="162" alt="image" src="https://github.com/user-attachments/assets/a04a6057-96a9-4c78-961e-8c2f686d4987" />
-
-    4.轮函数 F
-
-  <img width="589" height="868" alt="image" src="https://github.com/user-attachments/assets/897ce453-fd40-4323-8630-4b551fcdb704" />
 
 
 ## 🧱 代码结构
