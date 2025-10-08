@@ -11,13 +11,13 @@
 - 算法描述：
 
     1.加密算法：
-$$C = IP^{-1}\!\left(f_{k_2}\!\left(SW\!\left(f_{k_1}(IP(P))\right)\right)\right)$$
+$$C = IP^{-1}\\left(f_{k_2}\\left(SW\\left(f_{k_1}(IP(P))\right)\right)\right)$$
 
     2.解密算法：
-$$P = IP^{-1}\!\left(f_{k_1}\!\left(SW\!\left(f_{k_2}(IP(C))\right)\right)\right)$$
+$$P = IP^{-1}\\left(f_{k_1}\\left(SW\\left(f_{k_2}(IP(C))\right)\right)\right)$$
 
     3.密钥扩展：
-$$k_i = P_{8}\!\left(\mathrm{Shift}^{\,i}\!\left(P_{10}(K)\right)\right),\ (i=1,2)$$
+$$k_i = P_{8}\\left(\mathrm{Shift}^{\,i}\\left(P_{10}(K)\right)\right),\ (i=1,2)$$
 
 
 ## 🧱 代码结构
