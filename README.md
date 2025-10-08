@@ -72,7 +72,7 @@ S0盒和S1盒采用标准定义
 > 
 > B组得到密文：00010001
 
-## 欣悦的图
+![0fd11eff5c465992f2475b41b94f0c21](https://github.com/user-attachments/assets/683311fe-f2c3-47fc-91b8-acf644ef5493)
 
 > A组已知密文：00010001
 > 
